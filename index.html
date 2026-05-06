@@ -1165,11 +1165,10 @@
         <div class="container">
           <!-- Category Filter -->
           <div class="category-filter" id="categoryFilter">
-            <button class="filter-btn active" onclick="filterProducts('全部', this)">全部</button>
+            <button class="filter-btn" onclick="filterProducts('全部', this)">全部</button>
             <button class="filter-btn" onclick="filterProducts('沙发系列', this)">沙发系列</button>
             <button class="filter-btn" onclick="filterProducts('床具系列', this)">床具系列</button>
             <button class="filter-btn" onclick="filterProducts('餐桌系列', this)">餐桌系列</button>
-            <button class="filter-btn" onclick="filterProducts('办公家具', this)">办公家具</button>
             <button class="filter-btn" onclick="filterProducts('宠物家具', this)">宠物家具</button>
           </div>
 
@@ -1439,21 +1438,20 @@
 
   <script>
     // Products Data
-    const products = [
-      { id: 1, name: '现代简约沙发', category: '沙发系列', price: '¥8,800', desc: '舒适坐感，简约设计', image: 'https://static.deepsider.ai/itemp/aa8af3ebe14831a7cd1b6d1383a03755/20260506141710-fd0f9346-6e9b8a21.png' },
-      { id: 2, name: '真皮豪华沙发', category: '沙发系列', price: '¥15,600', desc: '头层牛皮，奢华享受', image: 'https://static.deepsider.ai/itemp/aa8af3ebe14831a7cd1b6d1383a03755/20260506142614-3f546419-c3954d80.png' },
-      { id: 11, name: 'L型转角沙发', category: '沙发系列', price: '¥12,800', desc: '转角设计，大户型首选', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506200131-02d4b0c4-5a6f01c5.png' },
-      { id: 12, name: '布艺休闲沙发', category: '沙发系列', price: '¥6,500', desc: '亲肤面料，轻松休闲', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506200234-1bc0a033-4d8f9620.png' },
-      { id: 13, name: '电动功能沙发', category: '沙发系列', price: '¥9,900', desc: '电动调节，舒适升级', image: 'https://via.placeholder.com/400x300?text=Recliner+Sofa' },
-      { id: 3, name: '实木双人床', category: '床具系列', price: '¥5,200', desc: '优质木材，稳固耐用', image: 'https://static.deepsider.ai/itemp/aa8af3ebe14831a7cd1b6d1383a03755/20260506194050-e53e9567-0dbc99d5.png' },
-      { id: 4, name: '软包舒适床', category: '床具系列', price: '¥6,800', desc: '柔软靠背，优质睡眠', image: 'https://static.deepsider.ai/itemp/aa8af3ebe14831a7cd1b6d1383a03755/20260506195952-4195a771-47474810.png' },
-      { id: 14, name: '真皮软床', category: '床具系列', price: '¥8,500', desc: '头层牛皮，奢华触感', image: 'https://via.placeholder.com/400x300?text=Leather+Bed' },
-      { id: 15, name: '储物高箱床', category: '床具系列', price: '¥7,200', desc: '超大储物空间，实用之选', image: 'https://via.placeholder.com/400x300?text=Storage+Bed' },
-      { id: 16, name: '北欧简约床', category: '床具系列', price: '¥4,800', desc: '简约设计，百搭风格', image: 'https://via.placeholder.com/400x300?text=Nordic+Bed' },
+            const products = [
+      { id: 1, name: '现代简约沙发', category: '沙发系列', price: '¥8,800', desc: '舒适坐感，简约设计', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506200329-3fcaf3f8-41fc587b.png' },
+      { id: 2, name: '真皮豪华沙发', category: '沙发系列', price: '¥15,600', desc: '头层牛皮，奢华享受', image: 'https://static.deepsider.ai/itemp/aa8af3ebe14831a7cd1b6d1383a03755/20260506195952-4195a771-47474810.png' },
+      { id: 11, name: 'L型转角沙发', category: '沙发系列', price: '¥12,800', desc: '转角设计，大户型首选', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201113-295aa591-3d888545.png' },
+      { id: 12, name: '布艺休闲沙发', category: '沙发系列', price: '¥6,500', desc: '亲肤面料，轻松休闲', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201413-0ca375f9-d6e3ac99.png' },
+      { id: 13, name: '电动功能沙发', category: '沙发系列', price: '¥9,900', desc: '电动调节，舒适升级', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201405-326d508d-f9b4d390.png' },
+      { id: 3, name: '实木双人床', category: '床具系列', price: '¥5,200', desc: '优质木材，稳固耐用', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201430-aa6d42b8-a4968244.png' },
+      { id: 4, name: '软包舒适床', category: '床具系列', price: '¥6,800', desc: '柔软靠背，优质睡眠', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201434-36b4dd88-835c472d.png' },
+      { id: 14, name: '真皮软床', category: '床具系列', price: '¥8,500', desc: '头层牛皮，奢华触感', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201440-1d94602c-3e729dee.png' },
+      { id: 15, name: '储物高箱床', category: '床具系列', price: '¥7,200', desc: '超大储物空间，实用之选', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201435-ed28eaf3-01a444cd.png' },
+      { id: 16, name: '北欧简约床', category: '床具系列', price: '¥4,800', desc: '简约设计，百搭风格', image: 'https://static.deepsider.ai/itemp/5d73ab8c654317a7d4f483a8022fd2cc/20260506201430-17ab7cb2-f03f30a0.png' },
       { id: 5, name: '实木餐桌椅套装', category: '餐桌系列', price: '¥9,600', desc: '天然材质，温馨用餐' },
       { id: 6, name: '大理石餐桌', category: '餐桌系列', price: '¥12,800', desc: '高端大气，易清洁' },
-      { id: 7, name: '人体工学办公椅', category: '办公家具', price: '¥3,200', desc: '长时间办公不疲劳' },
-      { id: 8, name: '实木书桌', category: '办公家具', price: '¥4,500', desc: '宽敞桌面，稳固结构' },
+      { id: 8, name: '实木书桌', price: '¥4,500', desc: '宽敞桌面，稳固结构' },
       { id: 9, name: '宠物舒适窝', category: '宠物家具', price: '¥1,200', desc: '柔软舒适，给毛孩子一个温暖的家', image: 'https://via.placeholder.com/400x300?text=Pet+Bed' },
       { id: 10, name: '宠物活动围栏', category: '宠物家具', price: '¥800', desc: '安全围栏，给宠物自由活动空间', image: 'https://via.placeholder.com/400x300?text=Pet+Pen' }
     ];
@@ -1597,3 +1595,6 @@
   </script>
 </body>
 </html>
+
+
+
