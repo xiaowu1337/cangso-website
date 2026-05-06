@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="舱属（cangso）- 专业家具展厅，为您提供高品质家具产品和优质的购物体验" />
+  <meta name="keywords" content="舱属,cangso,家具,家具展厅,家具品牌,高品质家具" />
+  <title>舱属（cangso）- 专业家具品牌</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2C3E50;
+      --secondary-color: #E74C3C;
+      --accent-color: #3498DB;
+      --text-dark: #2C3E50;
+      --text-light: #7F8C8D;
+      --bg-light: #ECF0F1;
+      --bg-white: #FFFFFF;
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--bg-white);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary-color);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: var(--secondary-color);
+      color: white;
+      border-radius: 5px;
+      transition: var(--transition);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: #C0392B;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background-color: white;
+      color: var(--primary-color);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: transparent;
+      transition: var(--transition);
+      padding: 20px 0;
+    }
+
+    .header.scrolled {
+      background-color: white;
+      box-shadow: var(--shadow);
+      padding: 10px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .header.scrolled .logo h1 {
+      color: var(--primary-color);
+    }
+
+    .logo-en {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      transition: var(--transition);
+    }
+
+    .header.scrolled .logo-en {
+      color: var(--text-light);
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: white;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary-color);
+    }
+
+    .header.scrolled .nav-link {
+      color: var(--text-dark);
+    }
+
+    .header.scrolled .nav-link:hover {
+      color: var(--secondary-color);
+    }
+
+    .menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 5px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      transition: var(--transition);
+    }
+
+    .header.scrolled .menu-btn span {
+      background-color: var(--text-dark);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      animation: fadeInUp 1s ease 0.2s;
+      animation-fill-mode: both;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease 0.4s;
+      animation-fill-mode: both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInUp 1s ease 0.6s;
+      animation-fill-mode: both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--bg-white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    /* Products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background-color: var(--bg-white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      height: 250px;
+      background: linear-gradient(135deg, var(--bg-light), #BDC3C7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .product-desc {
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+    }
+
+    /* Category Filter */
+    .category-filter {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      border-radius: 5px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    /* Showroom */
+    .showroom-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .showroom-text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .showroom-text p {
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+
+    .showroom-details {
+      margin: 30px 0;
+    }
+
+    .detail-item {
+      margin-bottom: 20px;
+    }
+
+    .detail-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    .booking-section {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: var(--bg-light);
+      border-radius: 10px;
+    }
+
+    .booking-section h3 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .showroom-images {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .showroom-image {
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--bg-light), #BDC3C7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+
+    .main-image {
+      height: 300px;
+    }
+
+    .showroom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .showroom-grid .image-placeholder {
+      height: 140px;
+      background: linear-gradient(135deg, var(--bg-light), #BDC3C7);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      text-align: center;
+      padding: 120px 0 80px;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* About */
+    .story-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .story-text h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .story-text p {
+      margin-bottom: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .image-placeholder {
+      height: 400px;
+      background: linear-gradient(135deg, var(--bg-light), #BDC3C7);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 1.2rem;
+    }
+
+    /* Mission & Vision */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .mv-card {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--bg-light);
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+
+    .mv-card:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .mv-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    /* Team */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .team-card {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: var(--bg-white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg-light), #BDC3C7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--text-light);
+    }
+
+    .team-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+      color: var(--primary-color);
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--bg-white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    /* Contact */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .contact-info p,
+    .contact-form p {
+      color: var(--text-light);
+      margin-bottom: 30px;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 15px;
+    }
+
+    .info-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .info-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1rem;
+    }
+
+    .success-message {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      color: #27AE60;
+      margin-bottom: 20px;
+    }
+
+    .success-message h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    /* Map */
+    .map-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+
+    .map-placeholder {
+      height: 400px;
+      background: linear-gradient(135deg, var(--bg-light), #BDC3C7);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 1.5rem;
+    }
+
+    .transport-info h3 {
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .transport-item {
+      margin-bottom: 20px;
+    }
+
+    .transport-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-section h4 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-section ul a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: var(--transition);
+    }
+
+    .footer-section ul a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Page */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .menu-btn {
+        display: flex;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+      }
+
+      .nav.open {
+        right: 0;
+      }
+
+      .nav-link {
+        color: var(--text-dark) !important;
+        font-size: 1.1rem;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--bg-light);
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .showroom-content,
+      .story-content,
+      .contact-content,
+      .map-content {
+        grid-template-columns: 1fr;
+      }
+
+      .showroom-images {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo" onclick="navigateTo('home'); return false;">
+          <h1>舱属</h1>
+          <span class="logo-en">CANGS</span>
+        </a>
+
+        <nav class="nav" id="nav">
+          <a href="#" class="nav-link" onclick="navigateTo('home'); return false;">首页</a>
+          <a href="#" class="nav-link" onclick="navigateTo('about'); return false;">关于我们</a>
+          <a href="#" class="nav-link" onclick="navigateTo('products'); return false;">产品展示</a>
+          <a href="#" class="nav-link" onclick="navigateTo('showroom'); return false;">展厅体验</a>
+          <a href="#" class="nav-link" onclick="navigateTo('contact'); return false;">联系我们</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Home Page -->
+    <div class="page active" id="page-home">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <h1 class="hero-title">舱属 CANGS</h1>
+          <p class="hero-subtitle">品味生活，从一件好家具开始</p>
+          <p class="hero-desc">专业家具展厅，为您打造舒适温馨的家居空间</p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary" onclick="navigateTo('products'); return false;">探索产品</a>
+            <a href="#" class="btn btn-secondary" onclick="navigateTo('showroom'); return false;">预约参观</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features section">
+        <div class="container">
+          <h2 class="section-title">为什么选择舱属</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">🛋️</div>
+              <h3>品质保证</h3>
+              <p>精选优质材料，严格品控，每一件家具都经得起时间考验</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎨</div>
+              <h3>设计美学</h3>
+              <p>融合现代设计与传统工艺，打造独特的家居美学</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💯</div>
+              <h3>贴心服务</h3>
+              <p>从选购到配送安装，提供一站式专业服务</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🏠</div>
+              <h3>实景展厅</h3>
+              <p>超大面积实景展厅，亲身感受家具的品质与舒适</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="featured-products section">
+        <div class="container">
+          <h2 class="section-title">精选产品</h2>
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-image">沙发系列</div>
+              <div class="product-info">
+                <h3>现代简约沙发</h3>
+                <p class="product-desc">舒适坐感，简约设计</p>
+                <div class="product-price">¥8,800</div>
+                <a href="#" class="btn" onclick="navigateTo('products'); return false;">了解更多</a>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-image">床具系列</div>
+              <div class="product-info">
+                <h3>品质卧室床具</h3>
+                <p class="product-desc">优质睡眠，从选择开始</p>
+                <div class="product-price">¥5,200</div>
+                <a href="#" class="btn" onclick="navigateTo('products'); return false;">了解更多</a>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-image">餐桌系列</div>
+              <div class="product-info">
+                <h3>实木餐桌椅</h3>
+                <p class="product-desc">天然材质，温馨用餐</p>
+                <div class="product-price">¥9,600</div>
+                <a href="#" class="btn" onclick="navigateTo('products'); return false;">了解更多</a>
+              </div>
+            </div>
+          </div>
+          <div class="text-center" style="margin-top: 40px;">
+            <a href="#" class="btn" onclick="navigateTo('products'); return false;">查看全部产品</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Showroom Preview -->
+      <section class="showroom-preview section">
+        <div class="container">
+          <div class="showroom-content">
+            <div class="showroom-text">
+              <h2>参观我们的展厅</h2>
+              <p>在舱属家具展厅，您可以亲身感受每一件家具的质感与舒适度。我们的展厅设计了多个生活场景，帮助您更好地想象家具在家中的效果。</p>
+              <ul style="margin: 20px 0; padding-left: 0; list-style: none;">
+                <li style="margin-bottom: 10px;">📍 地址：广东省佛山市XXX区XXX路XX号</li>
+                <li style="margin-bottom: 10px;">⏰ 营业时间：周一至周日 9:00-20:00</li>
+                <li style="margin-bottom: 10px;">📞 预约电话：400-XXX-XXXX</li>
+              </ul>
+              <a href="#" class="btn" onclick="navigateTo('showroom'); return false;">了解更多</a>
+            </div>
+            <div class="showroom-images">
+              <div class="showroom-image main-image">展厅实景图</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <h2>准备好打造您的梦想家居了吗？</h2>
+          <p>联系我们，让舱属专业团队为您服务</p>
+          <a href="#" class="btn btn-primary" onclick="navigateTo('contact'); return false;">立即联系</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- About Page -->
+    <div class="page" id="page-about">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>关于舱属</h1>
+          <p>了解我们的品牌故事与理念</p>
+        </div>
+      </section>
+
+      <!-- Brand Story -->
+      <section class="section brand-story">
+        <div class="container">
+          <div class="story-content">
+            <div class="story-text">
+              <h2>品牌故事</h2>
+              <p>舱属（CANGS）成立于2020年，是一家专注于高品质家具设计、生产与销售的专业品牌。</p>
+              <p>我们相信，家是心灵的港湾，而家具则是构成这个港湾的重要元素。每一件舱属家具，都承载着我们对美好生活的理解与追求。</p>
+              <p>从选材到工艺，从设计到服务，我们始终坚持"品质第一，客户至上"的理念，致力于为每一个家庭打造舒适、温馨、有品味的居住空间。</p>
+            </div>
+            <div class="story-image">
+              <div class="image-placeholder">品牌故事配图</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission & Vision -->
+      <section class="section mission-vision">
+        <div class="container">
+          <div class="mv-grid">
+            <div class="mv-card">
+              <h3>品牌理念</h3>
+              <p>为每一个家庭提供高品质、高性价比的家具产品，让美好生活触手可及。</p>
+            </div>
+            <div class="mv-card">
+              <h3>品牌愿景</h3>
+              <p>成为中国最受信赖的家具品牌，让"舱属"成为品质生活的代名词。</p>
+            </div>
+            <div class="mv-card">
+              <h3>核心价值</h3>
+              <p>诚信、品质、创新、服务——这是我们不变的承诺。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="section team-section">
+        <div class="container">
+          <h2 class="section-title">我们的团队</h2>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">设计总监</div>
+              <h4>张XX</h4>
+              <p>15年家具设计经验</p>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">工艺大师</div>
+              <h4>李XX</h4>
+              <p>20年木工经验</p>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">服务经理</div>
+              <h4>王XX</h4>
+              <p>10年客户服务经验</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="section stats-section">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">10,000+</div>
+              <div class="stat-label">服务客户</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">家具款式</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50,000㎡</div>
+              <div class="stat-label">生产基地</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">城市覆盖</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Products Page -->
+    <div class="page" id="page-products">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>产品展示</h1>
+          <p>精选高品质家具，为您打造理想家居</p>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="section">
+        <div class="container">
+          <!-- Category Filter -->
+          <div class="category-filter" id="categoryFilter">
+            <button class="filter-btn active" onclick="filterProducts('全部', this)">全部</button>
+            <button class="filter-btn" onclick="filterProducts('沙发系列', this)">沙发系列</button>
+            <button class="filter-btn" onclick="filterProducts('床具系列', this)">床具系列</button>
+            <button class="filter-btn" onclick="filterProducts('餐桌系列', this)">餐桌系列</button>
+            <button class="filter-btn" onclick="filterProducts('办公家具', this)">办公家具</button>
+            <button class="filter-btn" onclick="filterProducts('儿童家具', this)">儿童家具</button>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="productsGrid">
+            <!-- Products will be dynamically inserted here -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Showroom Page -->
+    <div class="page" id="page-showroom">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>展厅体验</h1>
+          <p>亲身感受舱属家具的品质与舒适</p>
+        </div>
+      </section>
+
+      <!-- Showroom Info -->
+      <section class="section showroom-info">
+        <div class="container">
+          <div class="showroom-content">
+            <div class="showroom-text">
+              <h2>欢迎来到舱属家具展厅</h2>
+              <p>我们的展厅设计了多个生活场景，从客厅、卧室到餐厅、书房，让您亲身感受家具在实际家居环境中的效果。</p>
+              <p>专业顾问将为您提供一对一服务，帮助您选择最适合的家具方案。</p>
+              
+              <div class="showroom-details">
+                <div class="detail-item">
+                  <h4>📍 展厅地址</h4>
+                  <p>广东省佛山市XXX区XXX路XX号</p>
+                </div>
+                <div class="detail-item">
+                  <h4>⏰ 营业时间</h4>
+                  <p>周一至周五：9:00 - 18:00</p>
+                  <p>周六至周日：10:00 - 20:00</p>
+                </div>
+                <div class="detail-item">
+                  <h4>📞 预约电话</h4>
+                  <p>400-XXX-XXXX</p>
+                </div>
+                <div class="detail-item">
+                  <h4>🅿️ 停车信息</h4>
+                  <p>展厅前设有免费停车场</p>
+                </div>
+              </div>
+
+              <div class="booking-section">
+                <h3>预约参观</h3>
+                <p>为避免等待，建议您提前预约参观时间</p>
+                <a href="tel:400-XXX-XXXX" class="btn">立即预约</a>
+              </div>
+            </div>
+
+            <div class="showroom-images">
+              <div class="showroom-image main-image">展厅全景图</div>
+              <div class="showroom-grid">
+                <div class="image-placeholder">客厅展示区</div>
+                <div class="image-placeholder">卧室展示区</div>
+                <div class="image-placeholder">餐厅展示区</div>
+                <div class="image-placeholder">办公展示区</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="section services">
+        <div class="container">
+          <h2 class="section-title">展厅服务</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🎨</div>
+              <h3>免费设计咨询</h3>
+              <p>专业设计师为您提供免费的家居搭配建议</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🚚</div>
+              <h3>免费配送安装</h3>
+              <p>购买家具后，我们提供免费的配送和安装服务</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">💎</div>
+              <h3>品质保障</h3>
+              <p>所有产品均享有品质保障和完善的售后服务</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🔄</div>
+              <h3>无忧退换</h3>
+              <p>7天内无理由退换，让您购物无后顾之忧</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map Section -->
+      <section class="section map-section">
+        <div class="container">
+          <h2 class="section-title">交通指南</h2>
+          <div class="map-content">
+            <div class="map-placeholder">
+              <div class="map-text">地图位置展示</div>
+            </div>
+            <div class="transport-info">
+              <h3>交通方式</h3>
+              <div class="transport-item">
+                <h4>🚗 自驾</h4>
+                <p>导航搜索"舱属家具展厅"，展厅前设有免费停车场</p>
+              </div>
+              <div class="transport-item">
+                <h4>🚇 地铁</h4>
+                <p>乘坐地铁X号线至XX站，A出口步行约10分钟</p>
+              </div>
+              <div class="transport-item">
+                <h4>🚌 公交</h4>
+                <p>乘坐XX路、XX路公交车至XXX站下车</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page" id="page-contact">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1>联系我们</h1>
+          <p>有任何问题，欢迎随时联系</p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="section">
+        <div class="container">
+          <div class="contact-content">
+            <!-- Contact Info -->
+            <div class="contact-info">
+              <h2>联系方式</h2>
+              <p>我们随时准备为您提供帮助</p>
+
+              <div class="info-list">
+                <div class="info-item">
+                  <div class="info-icon">📍</div>
+                  <div>
+                    <h4>公司地址</h4>
+                    <p>广东省佛山市XXX区XXX路XX号</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">📞</div>
+                  <div>
+                    <h4>联系电话</h4>
+                    <p>400-XXX-XXXX</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">📧</div>
+                  <div>
+                    <h4>电子邮箱</h4>
+                    <p>info@cangso.com</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">⏰</div>
+                  <div>
+                    <h4>营业时间</h4>
+                    <p>周一至周五：9:00 - 18:00</p>
+                    <p>周六至周日：10:00 - 20:00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+              <h2>在线留言</h2>
+              <p>请填写以下信息，我们会尽快回复您</p>
+
+              <form id="contactForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                  <label for="name">姓名 *</label>
+                  <input type="text" id="name" name="name" required placeholder="请输入您的姓名" />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">电话 *</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="请输入您的电话" />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">邮箱</label>
+                  <input type="email" id="email" name="email" placeholder="请输入您的邮箱（选填）" />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">留言内容 *</label>
+                  <textarea id="message" name="message" required rows="5" placeholder="请输入您的需求或问题"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">提交留言</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>舱属 CANGS</h3>
+          <p>专业家具品牌，致力于为您提供高品质的家具产品和优质的购物体验。</p>
+          <div class="social-links">
+            <a href="#" aria-label="微信">微信</a>
+            <a href="#" aria-label="微博">微博</a>
+            <a href="#" aria-label="抖音">抖音</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="#" onclick="navigateTo('home'); return false;">首页</a></li>
+            <li><a href="#" onclick="navigateTo('about'); return false;">关于我们</a></li>
+            <li><a href="#" onclick="navigateTo('products'); return false;">产品展示</a></li>
+            <li><a href="#" onclick="navigateTo('showroom'); return false;">展厅体验</a></li>
+            <li><a href="#" onclick="navigateTo('contact'); return false;">联系我们</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>联系方式</h4>
+          <ul>
+            <li>电话：400-XXX-XXXX</li>
+            <li>邮箱：info@cangso.com</li>
+            <li>地址：广东省佛山市XXX区XXX路XX号</li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>营业时间</h4>
+          <ul>
+            <li>周一至周五：9:00 - 18:00</li>
+            <li>周六至周日：10:00 - 20:00</li>
+            <li>节假日正常营业</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> 舱属 CANGS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Products Data
+    const products = [
+      { id: 1, name: '现代简约沙发', category: '沙发系列', price: '¥8,800', desc: '舒适坐感，简约设计' },
+      { id: 2, name: '真皮豪华沙发', category: '沙发系列', price: '¥15,600', desc: '头层牛皮，奢华享受' },
+      { id: 3, name: '实木双人床', category: '床具系列', price: '¥5,200', desc: '优质木材，稳固耐用' },
+      { id: 4, name: '软包舒适床', category: '床具系列', price: '¥6,800', desc: '柔软靠背，优质睡眠' },
+      { id: 5, name: '实木餐桌椅套装', category: '餐桌系列', price: '¥9,600', desc: '天然材质，温馨用餐' },
+      { id: 6, name: '大理石餐桌', category: '餐桌系列', price: '¥12,800', desc: '高端大气，易清洁' },
+      { id: 7, name: '人体工学办公椅', category: '办公家具', price: '¥3,200', desc: '长时间办公不疲劳' },
+      { id: 8, name: '实木书桌', category: '办公家具', price: '¥4,500', desc: '宽敞桌面，稳固结构' },
+      { id: 9, name: '儿童安全床', category: '儿童家具', price: '¥3,800', desc: '圆角设计，环保材质' },
+      { id: 10, name: '儿童学习桌椅', category: '儿童家具', price: '¥2,600', desc: '可调节高度，护眼设计' }
+    ];
+
+    let currentCategory = '全部';
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      renderProducts();
+      setupScrollEffect();
+    });
+
+    // Navigation
+    function navigateTo(page) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+
+      // Show target page
+      const targetPage = document.getElementById('page-' + page);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // Close mobile menu
+      closeMenu();
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // Mobile Menu
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('open');
+    }
+
+    function closeMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.remove('open');
+    }
+
+    // Scroll Effect for Header
+    function setupScrollEffect() {
+      window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+
+    // Products Filter
+    function filterProducts(category, btn) {
+      currentCategory = category;
+
+      // Update active button
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btn) {
+        btn.classList.add('active');
+      }
+
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const filtered = currentCategory === '全部'
+        ? products
+        : products.filter(p => p.category === currentCategory);
+
+      grid.innerHTML = filtered.map(product => `
+        <div class="product-card">
+          <div class="product-image">${product.name}</div>
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <p class="product-desc">${product.desc}</p>
+            <div class="product-price">${product.price}</div>
+            <button class="btn">了解更多</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Contact Form
+    function submitForm(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contactForm');
+      const formData = new FormData(form);
+
+      console.log('Form submitted:', Object.fromEntries(formData));
+
+      alert('提交成功！感谢您的留言，我们会尽快与您联系。');
+      form.reset();
+    }
+  </script>
+</body>
+</html>
